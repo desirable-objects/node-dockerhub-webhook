@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "Docker webhook",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/desirable-objects/node-dockerhub-webhook.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/desirable-objects/node-dockerhub-webhook/issues"
   },
   "author": "aj@desirableobjects.co.uk",
   "license": "ISC",
