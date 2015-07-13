@@ -1,0 +1,5 @@
+{
+  "events": {
+    "push": "./scripts/push.sh"
+  }
+}
