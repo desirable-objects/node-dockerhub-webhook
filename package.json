@@ -8,5 +8,9 @@
     "start": "node server.js"
   },
   "author": "aj@desirableobjects.co.uk",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.14.0",
+    "hapi": "^8.8.0"
+  }
 }
