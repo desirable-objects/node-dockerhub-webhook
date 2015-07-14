@@ -1,6 +1,14 @@
+#!/usr/bin/env node
+
 var Hapi = require('hapi'),
     config = require('config'),
-    spawn = require('child_process').spawn
+    spawn = require('child_process').spawn,
+    fs = require('fs'),
+    Hoek = require('hoek');
+
+var configFile = './config/default.json';
+Hoek.assert(fs.existsSync('./config/default.json'), 'No config file found. Looking for '+configFile);
+Hoek.assert(config.events && config.events.push, 'Push script should be specified in config.events.push');
 
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
@@ -26,23 +34,6 @@ server.route({
             state: "success"
           });
         });
-    }
-});
-
-/**
-{
-"state": "success",
-"description": "387 tests PASSED",
-"context": "Continuous integration by Acme CI",
-"target_url": "http://ci.acme.com/results/afd339c1c3d27"
-}
-**/
-
-server.route({
-    method: 'GET',
-    path: '/{name}',
-    handler: function (request, reply) {
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
     }
 });
 

@@ -17,6 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "config": "^1.14.0",
-    "hapi": "^8.8.0"
+    "hapi": "^8.8.0",
+    "hoek": "^2.14.0"
+  },
+  "bin": {
+    "docker-webhook": "server.js"
   }
 }
