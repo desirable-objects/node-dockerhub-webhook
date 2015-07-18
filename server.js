@@ -4,14 +4,15 @@ var Hapi = require('hapi'),
     config = require('config'),
     spawn = require('child_process').spawn,
     fs = require('fs'),
-    Hoek = require('hoek');
+    Hoek = require('hoek'),
+    http = require('request');
 
 var configFile = './config/default.json';
 Hoek.assert(fs.existsSync('./config/default.json'), 'No config file found. Looking for '+configFile);
 Hoek.assert(config.events && config.events.push, 'Push script should be specified in config.events.push');
 
 var server = new Hapi.Server();
-server.connection({ port: 3000 });
+server.connection({ port: process.env.PORT || 3000 });
 
 server.route({
     method: 'POST',
@@ -30,9 +31,24 @@ server.route({
 
         script.on('close', function (code) {
           console.log('child process exited with code ' + code);
-          reply({
-            state: "success"
-          });
+
+          var options = {
+            json: true,
+            body: {state: 'success'},
+            method: 'post',
+            url: request.payload.callback_url
+          };
+
+          http(options, function(err, response, body) {
+
+            if (err) {
+              console.error(err);
+            }
+
+            reply();
+
+          })
+
         });
     }
 });
