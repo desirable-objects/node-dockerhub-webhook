@@ -1,6 +1,6 @@
 {
   "name": "node-dockerhub-webhook",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Docker webhook",
   "main": "server.js",
   "repository": {
@@ -13,6 +13,7 @@
   "bugs": {
     "url": "https://github.com/desirable-objects/node-dockerhub-webhook/issues"
   },
+  "keywords": ["docker", "webhook", "node", "nodejs", "deploy", "autodeploy", "digitalocean"],
   "author": "aj@desirableobjects.co.uk",
   "license": "ISC",
   "dependencies": {
