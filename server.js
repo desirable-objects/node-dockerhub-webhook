@@ -36,7 +36,7 @@ server.route({
             json: true,
             body: {state: 'success'},
             method: 'post',
-            url: request.payload.callback_url
+            uri: request.payload.callback_url
           };
 
           http(options, function(err, response, body) {
