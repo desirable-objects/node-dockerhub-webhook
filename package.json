@@ -1,6 +1,6 @@
 {
   "name": "node-dockerhub-webhook",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Docker webhook",
   "main": "server.js",
   "repository": {
